@@ -15,8 +15,8 @@ function getStories(){
 function readableQuantity(n){
   if (n > 10000000) return Math.round(n/10000000)+" million";
   if (n > 1000000) return Number((n/1000000).toFixed(1))+" million";
-  if (n > 10000) return Math.round(n/1000)+" thousand";
-  if (n > 1000) return Number((n/1000).toFixed(1))+" thousand";
+  if (n > 10000) return Math.round(n/1000)+"k";
+  if (n > 1000) return Number((n/1000).toFixed(1))+"k";
   return Math.round(n);
 }
 
