@@ -1,0 +1,71 @@
+
+#election-interactive {
+  padding-top: 50px;
+  max-width: 1280px;
+}
+
+h2 {
+  font-size: 20px;
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+  margin-bottom: 25px;
+}
+h2.big {
+  text-transform: uppercase;
+}
+
+hr {
+  border: 1px solid #7C9CAA;
+  margin: 0px;
+  padding: 0px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+/*******************************************************************************************/
+/** POV PICKER **/
+
+#pov-options {
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+}
+
+#pov-options > input[type="radio"] {
+  display: none;
+}
+
+#pov-options > label {
+  vertical-align: top;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  margin-right: 20px;
+  overflow: hidden;
+  border-radius: 26px;
+  border: 1px solid #FFFFFF;
+  opacity: 0.5;
+}
+
+#pov-options > label:hover,
+#pov-options > label.selected {
+  opacity: 1;
+  border: 1px solid #333333;
+  cursor: pointer;
+}
+
+#pov-options > label:last-child {
+  margin-right: 0px;
+}
+
+#pov-option-left-label { background-color: #0571B0; color: #0571B0; }
+#pov-option-center-left-label { background-color: #92C5DE; color: #92C5DE; }
+#pov-option-center-label { background-color: #666666; color: #666666; }
+#pov-option-center-right-label { background-color: #F4A582; color: #F4A582; }
+#pov-option-right-label { background-color: #CA0020; color: #CA0020; }
+
+/*******************************************************************************************/
+/** THEME PICKER **/
+

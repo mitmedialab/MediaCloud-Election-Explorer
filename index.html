@@ -1,0 +1,52 @@
+<html>
+
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="./styles.css" rel="stylesheet">
+    <script src="./scripts.js"></script>
+  </head>
+
+<body>
+
+<div id="election-interactive">
+
+  <div id="pov-picker">
+    <h2 class="big">Pick a Point of View</h2>
+    <div id="pov-options">
+      
+      <input id="pov-option-left" type="radio" name="pov" value="left">
+      <label id="pov-option-left-label" for="pov-option-left">Left</label>
+      
+      <input id="pov-option-center-left" type="radio" name="pov" value="center-left">
+      <label id="pov-option-center-left-label" for="pov-option-center-left">Center Left</label>
+      
+      <input id="pov-option-center" type="radio" name="pov" value="center">
+      <label id="pov-option-center-label" for="pov-option-center">Center</label>
+      
+      <input id="pov-option-center-right" type="radio" name="pov" value="center-right">
+      <label id="pov-option-center-right-label" for="pov-option-center-right">Center Right</label>
+      
+      <input id="pov-option-right" type="radio" name="pov" value="right">
+      <label id="pov-option-right-label" for="pov-option-right">Right</label>
+    
+    </div>
+  </div>
+
+  <hr>
+
+  <div id="theme-picker">
+    <h2>See the most popular headlines about
+    <select id="theme-options" name="theme">
+      <option value="immigration">immigration</option>
+      <option value="clinton-foundation">Clinton Foundation</option>
+      <option value="clinton-emails">Clinton's emails</option>
+    </select>
+    </h2>
+  </div>
+
+</div>
+
+</body>
+
+</html>
