@@ -75,7 +75,18 @@ hr {
 
 
 /*******************************************************************************************/
-/** STORIES **/
+/** PLATFORM STORIES **/
+
+.platform {
+  display:inline-block;
+  vertical-align: top;
+  width:30%;
+  margin-right: 20px;
+}
+
+.platform:last-child {
+  margin-right: 0px;
+}
 
 ul.story-list {
   list-style: none;
@@ -125,18 +136,11 @@ ul.story-list {
 /*******************************************************************************************/
 /** ON DESKTOP **/
 
-.platform{
-  display:inline-block;
-  vertical-align: top;
-  width:30%;
-  margin-right: 20px;
-}
-.platform:last-child {
-  margin-right: 0px;
-}
-
-
 @media only screen and (min-width: 802px) {
+
+  .platform {
+    opacity: 1;
+  }
 
 }
 
@@ -147,6 +151,9 @@ ul.story-list {
 
   #stories {
     position: relative;
+    width: 100%;
+    overflow: hidden;
+    height: 1000px;
   }
 
   #platforms {
@@ -157,9 +164,6 @@ ul.story-list {
 
   .platform {
     width: 400px;
-  }
-
-  .offscreen {
     opacity: 0.2;
   }
 

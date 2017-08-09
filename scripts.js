@@ -12,8 +12,15 @@ function getStories(){
   }
 }
 
+function readableQuantity(n){
+  if (n > 10000000) return Math.round(n/10000000)+" million";
+  if (n > 1000000) return Number((n/1000000).toFixed(1))+" million";
+  if (n > 10000) return Math.round(n/1000)+" thousand";
+  if (n > 1000) return Number((n/1000).toFixed(1))+" thousand";
+  return Math.round(n);
+}
+
 function trimStoryTitle(title) {
-  
   if (title.length > MAX_STORY_TITLE_LENGTH) {
     return title.substring(0,MAX_STORY_TITLE_LENGTH) + "...";
   }
@@ -25,15 +32,16 @@ function handlePovChange() {
   var povSelectedLabel = povSelectedOption.attr('id')+"-label";
   $("#pov-options > label").removeClass('selected');
   $("#"+povSelectedLabel).addClass('selected');
-  handleStoryUpdate();
+  $("#results").fadeIn();
+  updateStories();
 }
 
 function handleThemeChange() {
   var themeSelected = $(THEME_FIELD_SELECTOR).val();
-  handleStoryUpdate();
+  updateStories();
 }
 
-function handleStoryUpdate() {
+function updateStories() {
   var pov = $(POV_FIELD_SELECTOR).val();
   var theme = $(THEME_FIELD_SELECTOR).val();
   var stories = getStories(pov, theme);
@@ -48,7 +56,7 @@ function renderStory(story) {
   return $(
     '<li class="story" data-stories-id="'+story['storiesId']+'">' +
       '<span class="story-influence">' +
-        '<em>'+story['count']+'</em>' +
+        '<em>'+readableQuantity(story['count'])+'</em>' +
         '<br />' +
         ' shares' +
       '</span>' +
@@ -98,6 +106,7 @@ function render(stories){
 function initApp(){
   $('input[type=radio][name=pov]').change(handlePovChange);
   $('select[name=theme]').change(handleThemeChange);
+  changePlatform('facebook');
 }
 
 // init the app once the document is ready
