@@ -1,4 +1,9 @@
 
+body {
+  font-family: 'Lato', sans-serif;  
+  background-color: #eeeeee;
+}
+
 #election-interactive {
   padding-top: 50px;
   max-width: 1280px;
@@ -6,7 +11,6 @@
 
 h2 {
   font-size: 20px;
-  font-family: 'Lato', sans-serif;
   text-align: center;
   padding: 0px;
   margin: 0px;
@@ -45,14 +49,14 @@ hr {
   margin-right: 20px;
   overflow: hidden;
   border-radius: 26px;
-  border: 1px solid #FFFFFF;
+  border: 2px solid #FFFFFF;
   opacity: 0.5;
 }
 
 #pov-options > label:hover,
 #pov-options > label.selected {
   opacity: 1;
-  border: 1px solid #333333;
+  border: 2px solid #333333;
   cursor: pointer;
 }
 
@@ -69,3 +73,94 @@ hr {
 /*******************************************************************************************/
 /** THEME PICKER **/
 
+
+/*******************************************************************************************/
+/** STORIES **/
+
+ul.story-list {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.story {
+  margin-bottom: 25px;
+}
+
+.story:last-child {
+  margin-bottom: 0px;
+}
+
+.story h3 {
+  font-size: 20px;
+  margin: 0px;
+  padding: 0px;
+  margin-bottom: 10px;
+}
+
+.story .media-source {
+  vertical-align: center;
+  font-size: 15px;
+  color: #636363;
+}
+
+.story .media-source img {
+  margin-right: 12px;
+}
+
+.story .story-influence {
+  float: right;
+  width: 100px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 15px;
+  color: #636363;
+}
+
+.story .story-influence em {
+  font-weight: bold;
+  font-style: normal;
+}
+
+/*******************************************************************************************/
+/** ON DESKTOP **/
+
+.platform{
+  display:inline-block;
+  vertical-align: top;
+  width:30%;
+  margin-right: 20px;
+}
+.platform:last-child {
+  margin-right: 0px;
+}
+
+
+@media only screen and (min-width: 802px) {
+
+}
+
+/*******************************************************************************************/
+/** ON MOBILE **/
+
+@media only screen and (max-width: 801px) {
+
+  #stories {
+    position: relative;
+  }
+
+  #platforms {
+    position: absolute;
+    width: 1400px;
+    left: -300px;
+  }
+
+  .platform {
+    width: 400px;
+  }
+
+  .offscreen {
+    opacity: 0.2;
+  }
+
+}
