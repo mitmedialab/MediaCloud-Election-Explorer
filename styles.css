@@ -4,11 +4,6 @@ body {
   background-color: #eeeeee;
 }
 
-#election-interactive {
-  padding-top: 50px;
-  max-width: 1280px;
-}
-
 h2 {
   font-size: 20px;
   text-align: center;
@@ -26,6 +21,21 @@ hr {
   padding: 0px;
   margin-top: 50px;
   margin-bottom: 50px;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  color: #7C9CAA;
+}
+
+#election-interactive {
+  padding-top: 50px;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /*******************************************************************************************/
@@ -70,6 +80,15 @@ hr {
 #pov-option-center-right-label { background-color: #F4A582; color: #F4A582; }
 #pov-option-right-label { background-color: #CA0020; color: #CA0020; }
 
+#pov-option-hover {
+  display: none;
+  position: absolute;
+  font-size: 12px;
+  padding-top: 5px;
+  width: 70px;
+  text-align: center;
+}
+
 /*******************************************************************************************/
 /** THEME PICKER **/
 
@@ -106,31 +125,26 @@ ul.story-list {
   font-size: 20px;
   margin: 0px;
   padding: 0px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .story .media-source {
   vertical-align: center;
   font-size: 15px;
-  color: #636363;
+  font-weight: 100;
 }
 
 .story .media-source img {
-  margin-right: 12px;
+  margin-right: 10px;
+  vertical-align: middle;
 }
 
 .story .story-influence {
   float: right;
-  width: 100px;
-  text-align: center;
+  text-align: right;
   vertical-align: middle;
   font-size: 15px;
-  color: #636363;
-}
-
-.story .story-influence em {
-  font-weight: bold;
-  font-style: normal;
+  font-weight: 100;
 }
 
 /*******************************************************************************************/
@@ -147,8 +161,8 @@ ul.story-list {
 /*******************************************************************************************/
 /** ON MOBILE **/
 
-@media only screen and (max-width: 801px) {
-
+/* #### Mobile Phones Portrait or Landscape #### */
+@media screen and (max-width: 640px){
   #stories {
     position: relative;
     width: 100%;
@@ -158,13 +172,22 @@ ul.story-list {
 
   #platforms {
     position: absolute;
-    width: 1400px;
-    left: -300px;
+    width: 1010px;
   }
 
   .platform {
-    width: 400px;
+    width: 320px;
     opacity: 0.2;
   }
+}
+
+/* #### Tablets Portrait or Landscape #### */
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px){
+  // do 
+}
+
+@media only screen and (max-width: 801px) {
+
+  
 
 }

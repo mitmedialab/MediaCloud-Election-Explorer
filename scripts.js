@@ -1,7 +1,7 @@
 
 var POV_FIELD_SELECTOR = 'input[name=pov]:checked';
 var THEME_FIELD_SELECTOR = 'select[name=theme]';
-var MAX_STORY_TITLE_LENGTH = 60;  // experimentally determined to be two lines
+var MAX_STORY_TITLE_LENGTH = 80;  // experimentally determined to be two lines
 var currentPlatform = "facebook";
 
 function getStories(){
@@ -27,7 +27,23 @@ function trimStoryTitle(title) {
   return title;
 }
 
-function handlePovChange() {
+function handlePovHoverIn(evt) {
+  var label = $(evt.target);
+  var offset = label.offset();
+  var hoverElement = $('#pov-option-hover');
+  hoverElement
+    .css({top: offset.top+label.height,
+          left: offset.left - (hoverElement.width() - label.width())/ 2,
+          color: label.css('background-color')})
+    .text(label.text())
+    .show();
+}
+
+function handlePovHoverOut(evt) {
+  $('#pov-option-hover').hide();
+}
+
+function handlePovChange(evt) {
   var povSelectedOption = $(POV_FIELD_SELECTOR);
   var povSelectedLabel = povSelectedOption.attr('id')+"-label";
   $("#pov-options > label").removeClass('selected');
@@ -52,15 +68,13 @@ function getFavIconUrl(siteUrl){
   return "http://www.google.com/s2/favicons?domain_url="+siteUrl;
 }
 
-function renderStory(story) {
+function renderStory(story, shareType) {
   return $(
     '<li class="story" data-stories-id="'+story['storiesId']+'">' +
+      '<h3><a href="'+story['storyUrl']+'" target=_new>'+trimStoryTitle(story['title'])+'</a></h3>' +
       '<span class="story-influence">' +
-        '<em>'+readableQuantity(story['count'])+'</em>' +
-        '<br />' +
-        ' shares' +
+        readableQuantity(story['count'])+' '+shareType +
       '</span>' +
-      '<h3>'+trimStoryTitle(story['title'])+'</h3>' +
       '<span class="media-source" data-media-id="'+story['mediaId']+'">' +
         '<img src="'+getFavIconUrl(story['mediaUrl'])+'" alt="'+story['mediaName']+' logo"/>' +
         story['mediaName'] +
@@ -72,39 +86,41 @@ function renderStory(story) {
 function changePlatform(nextPlatform) {
   var docWidth = $( window ).width();
   var platformWidth = $($('.platform')[0]).width();
+  var platformsWidth = $($('#platforms')[0]).width();
   var docOffset = (docWidth - platformWidth) / 2;
   // fade...
   $('#'+currentPlatform+'-stories').animate({opacity: 0.2}, 500);
   var selectedPlatformId = nextPlatform+'-stories';
   $('#'+nextPlatform+'-stories').animate({opacity: 1}, 500);
   // ...and sliiiiide
-  var xOffset = docOffset;
-  if(nextPlatform == "twitter") xOffset += 0;
-  if(nextPlatform == "facebook") xOffset += -420;
-  if(nextPlatform == "web") xOffset += -855;
+  var xOffset = 0;
+  if(nextPlatform == "twitter") xOffset += docOffset/2;
+  if(nextPlatform == "facebook") xOffset -= platformsWidth/2 - docWidth/2;
+  if(nextPlatform == "web") xOffset -= (platformsWidth - platformWidth/2) - docWidth/2;
   $('#platforms').animate({left: xOffset}, 500);
   currentPlatform = nextPlatform;
 }
 
 function render(stories){
-  var twitterStoryElements = $.map(stories.twitter, renderStory);
+  var twitterStoryElements = $.map(stories.twitter, function(s) { return renderStory(s, "retweets"); });
   var twitterStoryList = $('#twitter-stories ul.story-list');
   twitterStoryList.empty();
-  twitterStoryList.append($.map(stories.twitter, renderStory));
+  twitterStoryList.append(twitterStoryElements);
 
-  var facebookStoryElements = $.map(stories.twitter, renderStory);
+  var facebookStoryElements = $.map(stories.facebook, function(s) { return renderStory(s, "likes"); });
   var facebookStoryList = $('#facebook-stories ul.story-list');
   facebookStoryList.empty();
-  facebookStoryList.append($.map(stories.facebook, renderStory));
+  facebookStoryList.append(facebookStoryElements);
   
-  var webStoryElements = $.map(stories.web, renderStory);
+  var webStoryElements = $.map(stories.web, function(s) { return renderStory(s, "links"); });
   var webStoryList = $('#web-stories ul.story-list');
   webStoryList.empty();
-  webStoryList.append($.map(stories.web, renderStory));
+  webStoryList.append(webStoryElements);
 }
 
 function initApp(){
   $('input[type=radio][name=pov]').change(handlePovChange);
+  $('#pov-options > label').hover(handlePovHoverIn, handlePovHoverOut);
   $('select[name=theme]').change(handleThemeChange);
   changePlatform('facebook');
 }

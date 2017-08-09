@@ -6,7 +6,8 @@ var testStories = [
     title: "Conservatives Against Trump",
     count: "1200000",
     mediaName: "National Review",
-    mediaUrl: "http://nationalreview.com"
+    mediaUrl: "http://nationalreview.com",
+    storyUrl: 'http://mediacloud.org/'
   },
   {
     storiesId: 2,
@@ -14,7 +15,8 @@ var testStories = [
     title: "I have Disinvited Donald Trump to the RedState Gathering",
     count: "26000",
     mediaName: "RedState",
-    mediaUrl: "http://www.redstate.com"
+    mediaUrl: "http://www.redstate.com",
+    storyUrl: 'http://mediacloud.org/'
   },
   {
     storiesId: 3,
@@ -22,7 +24,8 @@ var testStories = [
     title: "Trump Praises His Sister, a Pro-Abortion Extremist Judge",
     count: "14234",
     mediaName: "National Review",
-    mediaUrl: "http://nationalreview.com"
+    mediaUrl: "http://nationalreview.com",
+    storyUrl: 'http://mediacloud.org/'
   },
   {
     storiesId: 4,
@@ -30,6 +33,7 @@ var testStories = [
     title: "'Top Secret' emails found as Clinton probe expands to key probe expands to key",
     count: "9235",
     mediaName: "RedState",
-    mediaUrl: "http://www.redstate.com"
+    mediaUrl: "http://www.redstate.com",
+    storyUrl: 'http://mediacloud.org/'
   }
 ];
