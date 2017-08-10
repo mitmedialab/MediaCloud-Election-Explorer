@@ -32,7 +32,7 @@ a:hover {
 }
 
 #election-interactive {
-  padding-top: 50px;
+  padding-top: 25px;
   max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
@@ -41,7 +41,8 @@ a:hover {
 /*******************************************************************************************/
 /** POV PICKER **/
 
-#pov-options {
+#pov-options,
+#pov-names {
   text-align: center;
   margin: 0px;
   padding: 0px;
@@ -51,12 +52,22 @@ a:hover {
   display: none;
 }
 
-#pov-options > label {
+#pov-options > label,
+#pov-names > label {
   vertical-align: top;
   display: inline-block;
+  margin-right: 10px;
+}
+
+#pov-names > label {
+  padding-top: 5px;
+  width: 54px;
+  font-size: 14px;
+}
+
+#pov-options > label {
   width: 50px;
   height: 50px;
-  margin-right: 10px;
   overflow: hidden;
   border-radius: 26px;
   border: 2px solid #FFFFFF;
@@ -70,20 +81,26 @@ a:hover {
   cursor: pointer;
 }
 
-#pov-options > label:last-child {
+#pov-options > label:last-child,
+#pov-names > label:last-child {
   margin-right: 0px;
 }
 
-#pov-option-left-label { background-color: #0571B0; color: #0571B0; }
-#pov-option-center-left-label { background-color: #92C5DE; color: #92C5DE; }
+#pov-option-left-label { background-color: #0571b0; color: #0571b0; }
+#pov-option-left-name { color: #0571b0; }
+#pov-option-center-left-label { background-color: #92c5de; color: #92c5de; }
+#pov-option-center-left-name { color: #92c5de; }
 #pov-option-center-label { background-color: #666666; color: #666666; }
-#pov-option-center-right-label { background-color: #F4A582; color: #F4A582; }
-#pov-option-right-label { background-color: #CA0020; color: #CA0020; }
+#pov-option-center-name { color: #666666; }
+#pov-option-center-right-label { background-color: #f4a582; color: #f4a582; }
+#pov-option-center-right-name { color: #f4a582; }
+#pov-option-right-label { background-color: #ca0020; color: #ca0020; }
+#pov-option-right-name { color: #ca0020; }
 
 #pov-option-hover {
   display: none;
   position: absolute;
-  font-size: 12px;
+  font-size: 14px;
   padding-top: 5px;
   width: 70px;
   text-align: center;
@@ -154,6 +171,11 @@ ul.story-list {
 
   .platform {
     opacity: 1;
+  }
+
+  #pov-options > label,
+  #pov-names > label {
+    margin-right: 60px;
   }
 
 }

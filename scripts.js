@@ -124,8 +124,15 @@ function render(stories){
 
 function initApp(){
   $('input[type=radio][name=pov]').change(handlePovChange);
-  if (!isMobile) $('#pov-options > label').hover(handlePovHoverIn, handlePovHoverOut);
   $('select[name=theme]').change(handleThemeChange);
+  // on mobile show label names; on desktop hide them and do a hove
+  if (isMobile) {
+    $('#pov-names').show();
+  } else {
+    $('#pov-names').hide();
+    $('#pov-options > label').hover(handlePovHoverIn, handlePovHoverOut);
+  }
+  // start off on FB
   changePlatform('facebook');
 }
 
