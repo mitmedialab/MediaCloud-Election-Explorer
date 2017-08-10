@@ -164,6 +164,18 @@ ul.story-list {
   font-weight: 100;
 }
 
+a.platform-link {
+  font-size: 12px;
+}
+
+.platform .left {
+  float: left;
+}
+
+.platform .right {
+  float: right;
+}
+
 /*******************************************************************************************/
 /** ON DESKTOP **/
 
